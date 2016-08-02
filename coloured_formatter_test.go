@@ -1,4 +1,4 @@
-package logging
+package logging_test
 
 import (
 	"bytes"
@@ -8,13 +8,14 @@ import (
 	"testing"
 	"time"
 
+	"github.com/RichardKnop/logging"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestColouredFormatter(t *testing.T) {
 	var (
 		out, errOut = bytes.NewBuffer([]byte{}), bytes.NewBuffer([]byte{})
-		logger      = New(out, errOut, new(ColouredFormatter))
+		logger      = logging.New(out, errOut, new(logging.ColouredFormatter))
 		now         time.Time
 		actual      []byte
 		expected    string
@@ -29,7 +30,7 @@ func TestColouredFormatter(t *testing.T) {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"\x1b[0;94mINFO: %s coloured_formatter_test.go:26 Test logger.Info\x1b[0m\n",
+		"\x1b[0;94mINFO: %s coloured_formatter_test.go:27 Test logger.Info\x1b[0m\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
@@ -42,7 +43,7 @@ func TestColouredFormatter(t *testing.T) {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"\x1b[0;94mINFO: %s coloured_formatter_test.go:39 Test logger.Infof\x1b[0m\n",
+		"\x1b[0;94mINFO: %s coloured_formatter_test.go:40 Test logger.Infof\x1b[0m\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
@@ -55,7 +56,7 @@ func TestColouredFormatter(t *testing.T) {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"\x1b[0;95mWARNING: %s coloured_formatter_test.go:52 Test logger.Warning\x1b[0m\n",
+		"\x1b[0;95mWARNING: %s coloured_formatter_test.go:53 Test logger.Warning\x1b[0m\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
@@ -68,7 +69,7 @@ func TestColouredFormatter(t *testing.T) {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"\x1b[0;95mWARNING: %s coloured_formatter_test.go:65 Test logger.Warningf\x1b[0m\n",
+		"\x1b[0;95mWARNING: %s coloured_formatter_test.go:66 Test logger.Warningf\x1b[0m\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
@@ -81,7 +82,7 @@ func TestColouredFormatter(t *testing.T) {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"\x1b[0;91mERROR: %s coloured_formatter_test.go:78 Test logger.Error\x1b[0m\n",
+		"\x1b[0;91mERROR: %s coloured_formatter_test.go:79 Test logger.Error\x1b[0m\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
@@ -94,7 +95,7 @@ func TestColouredFormatter(t *testing.T) {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"\x1b[0;91mERROR: %s coloured_formatter_test.go:91 Test logger.Errorf\x1b[0m\n",
+		"\x1b[0;91mERROR: %s coloured_formatter_test.go:92 Test logger.Errorf\x1b[0m\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
@@ -107,7 +108,7 @@ func TestColouredFormatter(t *testing.T) {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"\x1b[0;91mFATAL: %s coloured_formatter_test.go:104 Test logger.Fatal\x1b[0m\n",
+		"\x1b[0;91mFATAL: %s coloured_formatter_test.go:105 Test logger.Fatal\x1b[0m\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
@@ -120,7 +121,7 @@ func TestColouredFormatter(t *testing.T) {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"\x1b[0;91mFATAL: %s coloured_formatter_test.go:117 Test logger.Fatalf\x1b[0m\n",
+		"\x1b[0;91mFATAL: %s coloured_formatter_test.go:118 Test logger.Fatalf\x1b[0m\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
