@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/AreaHQ/logging"
+	"github.com/RichardKnop/logging"
 )
 
 var (
