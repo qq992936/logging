@@ -24,104 +24,104 @@ func TestDefaultFormatter(t *testing.T) {
 
 	// Test logger.Info
 	now = time.Now()
-	logger.Info("Test logger.Info")
+	logger[logging.INFO].Print("Test logger.Print")
 	actual, err = ioutil.ReadAll(out)
 	if err != nil {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"INFO: %s default_formatter_test.go:27 Test logger.Info\n",
+		"INFO: %s default_formatter_test.go:27 Test logger.Print\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
 
 	// Test logger.Infof
 	now = time.Now()
-	logger.Infof("Test %s.%s", "logger", "Infof")
+	logger[logging.INFO].Printf("Test %s.%s", "logger", "Printf")
 	actual, err = ioutil.ReadAll(out)
 	if err != nil {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"INFO: %s default_formatter_test.go:40 Test logger.Infof\n",
+		"INFO: %s default_formatter_test.go:40 Test logger.Printf\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
 
 	// Test logger.Warning
 	now = time.Now()
-	logger.Warning("Test logger.Warning")
+	logger[logging.WARNING].Print("Test logger.Print")
 	actual, err = ioutil.ReadAll(out)
 	if err != nil {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"WARNING: %s default_formatter_test.go:53 Test logger.Warning\n",
+		"WARNING: %s default_formatter_test.go:53 Test logger.Print\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
 
 	// Test logger.Warningf
 	now = time.Now()
-	logger.Warningf("Test %s.%s", "logger", "Warningf")
+	logger[logging.WARNING].Printf("Test %s.%s", "logger", "Printf")
 	actual, err = ioutil.ReadAll(out)
 	if err != nil {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"WARNING: %s default_formatter_test.go:66 Test logger.Warningf\n",
+		"WARNING: %s default_formatter_test.go:66 Test logger.Printf\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
 
 	// Test logger.Error
 	now = time.Now()
-	logger.Error("Test logger.Error")
+	logger[logging.ERROR].Print("Test logger.Print")
 	actual, err = ioutil.ReadAll(errOut)
 	if err != nil {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"ERROR: %s default_formatter_test.go:79 Test logger.Error\n",
+		"ERROR: %s default_formatter_test.go:79 Test logger.Print\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
 
 	// Test logger.Errorf
 	now = time.Now()
-	logger.Errorf("Test %s.%s", "logger", "Errorf")
+	logger[logging.ERROR].Printf("Test %s.%s", "logger", "Printf")
 	actual, err = ioutil.ReadAll(errOut)
 	if err != nil {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"ERROR: %s default_formatter_test.go:92 Test logger.Errorf\n",
+		"ERROR: %s default_formatter_test.go:92 Test logger.Printf\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
 
 	// Test logger.Fatal
 	now = time.Now()
-	logger.Fatal("Test logger.Fatal")
+	logger[logging.FATAL].Print("Test logger.Print")
 	actual, err = ioutil.ReadAll(errOut)
 	if err != nil {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"FATAL: %s default_formatter_test.go:105 Test logger.Fatal\n",
+		"FATAL: %s default_formatter_test.go:105 Test logger.Print\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
 
 	// Test logger.Fatalf
 	now = time.Now()
-	logger.Fatalf("Test %s.%s", "logger", "Fatalf")
+	logger[logging.FATAL].Printf("Test %s.%s", "logger", "Printf")
 	actual, err = ioutil.ReadAll(errOut)
 	if err != nil {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"FATAL: %s default_formatter_test.go:118 Test logger.Fatalf\n",
+		"FATAL: %s default_formatter_test.go:118 Test logger.Printf\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
