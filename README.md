@@ -1,4 +1,4 @@
-# Logging
+## Logging
 
 A simple leveled logging library with coloured output.
 
