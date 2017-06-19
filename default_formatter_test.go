@@ -13,6 +13,8 @@ import (
 )
 
 func TestDefaultFormatter(t *testing.T) {
+	t.Parallel()
+
 	var (
 		out, errOut = bytes.NewBuffer([]byte{}), bytes.NewBuffer([]byte{})
 		logger      = logging.New(out, errOut, nil)
@@ -30,7 +32,7 @@ func TestDefaultFormatter(t *testing.T) {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"INFO: %s default_formatter_test.go:27 Test logger.Print\n",
+		"INFO: %s default_formatter_test.go:29 Test logger.Print\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
@@ -43,7 +45,7 @@ func TestDefaultFormatter(t *testing.T) {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"INFO: %s default_formatter_test.go:40 Test logger.Printf\n",
+		"INFO: %s default_formatter_test.go:42 Test logger.Printf\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
@@ -56,7 +58,7 @@ func TestDefaultFormatter(t *testing.T) {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"WARNING: %s default_formatter_test.go:53 Test logger.Print\n",
+		"WARNING: %s default_formatter_test.go:55 Test logger.Print\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
@@ -69,7 +71,7 @@ func TestDefaultFormatter(t *testing.T) {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"WARNING: %s default_formatter_test.go:66 Test logger.Printf\n",
+		"WARNING: %s default_formatter_test.go:68 Test logger.Printf\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
@@ -82,7 +84,7 @@ func TestDefaultFormatter(t *testing.T) {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"ERROR: %s default_formatter_test.go:79 Test logger.Print\n",
+		"ERROR: %s default_formatter_test.go:81 Test logger.Print\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
@@ -95,7 +97,7 @@ func TestDefaultFormatter(t *testing.T) {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"ERROR: %s default_formatter_test.go:92 Test logger.Printf\n",
+		"ERROR: %s default_formatter_test.go:94 Test logger.Printf\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
@@ -108,7 +110,7 @@ func TestDefaultFormatter(t *testing.T) {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"FATAL: %s default_formatter_test.go:105 Test logger.Print\n",
+		"FATAL: %s default_formatter_test.go:107 Test logger.Print\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
@@ -121,7 +123,7 @@ func TestDefaultFormatter(t *testing.T) {
 		log.Fatal(err)
 	}
 	expected = fmt.Sprintf(
-		"FATAL: %s default_formatter_test.go:118 Test logger.Printf\n",
+		"FATAL: %s default_formatter_test.go:120 Test logger.Printf\n",
 		now.Format("2006/01/02 15:04:05"),
 	)
 	assert.Equal(t, expected, string(actual))
