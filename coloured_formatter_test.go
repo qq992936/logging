@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/RichardKnop/logging"
+	"github.com/qq992936/logging"
 	"github.com/stretchr/testify/assert"
 )
 

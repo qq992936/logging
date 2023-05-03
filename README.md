@@ -25,7 +25,7 @@ Example usage. Create a new package `log` in your app such that:
 package log
 
 import (
-	"github.com/RichardKnop/logging"
+	"github.com/qq992936/logging"
 )
 
 var (
